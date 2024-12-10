@@ -92,10 +92,15 @@ public class KRS07 {
         boolean nemu = false;
         int totalSKS = 0;
 
-        System.out.println("Daftar KRS");
-            System.out.println("NIM\tNAMA\tKode MK\tNama Mata Kuliah\tSKS");
+        if (!nemu) {
+            System.out.println("Data Mahasiswa dengan NIM " + nimLogin + " tidak ditemukan!!!");
+            return;
+        }
 
         for(int i = 0; i < idx; i++){
+
+            System.out.println("Daftar KRS");
+            System.out.println("NIM\tNAMA\tKode MK\tNama Mata Kuliah\tSKS");
 
             if (dataMhs[i][1].equals(nimLogin)) {
                 System.out.println(dataMhs[i][1] + "\t" + dataMhs[i][0] + "\t" + dataMhs[i][2] + "\t" + dataMhs[i][3] + "\t\t" + nilaiSKS[i]);
@@ -106,8 +111,6 @@ public class KRS07 {
 
         if (nemu) {
             System.out.println("Total SKS: " + totalSKS);
-        } else if (!nemu) {
-            System.out.println("Data Mahasiswa dengan NIM " + nimLogin + " tidak ditemukan!!!");
         }
     }
 
