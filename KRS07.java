@@ -16,7 +16,7 @@ public class KRS07 {
             System.out.println("2. Tampilkan daftar KRS Mahasiswa");
             System.out.println("3. Analis data KRS");
             System.out.println("4. Keluar");
-            System.out.print("Pilih mennu: ");
+            System.out.print("Pilih menu: ");
                 pilih = sc.nextInt();
                 sc.nextLine();
 
@@ -33,14 +33,14 @@ public class KRS07 {
                         analisKRS();
                         break;
 
-                    // case 4;
-
-                    //     break;
+                    case 4:
+                        System.out.println("Terima Kasih");
+                        break;
                 
                     default:
                         System.out.println("Pilihan tidak valid. mohon input dengan benar");
        }
-    }while (true);
+    }while (pilih != 4);
 
     }
 
@@ -62,7 +62,7 @@ public class KRS07 {
             int sks = sc.nextInt();
             sc.nextLine();
 
-            if (sks < 1 && sks > 3) {
+            if (sks < 1 || sks > 3) {
                 System.out.println("INPUT SKS TIDAK VALID MOHON ULANGI LAGI!!!");
                 continue;
             } 
@@ -106,6 +106,8 @@ public class KRS07 {
 
         if (nemu) {
             System.out.println("Total SKS: " + totalSKS);
+        } else if (!nemu) {
+            System.out.println("Data Mahasiswa dengan NIM " + nimLogin + " tidak ditemukan!!!");
         }
     }
 
@@ -124,6 +126,6 @@ public class KRS07 {
                 mhsKurang++;
             }
         }
-        System.out.println("Jumlah mahasiswa yang memiliki SKS kurang dari 20: ");
+        System.out.println("Jumlah mahasiswa yang memiliki SKS kurang dari 20: " + mhsKurang);
     }
 }
