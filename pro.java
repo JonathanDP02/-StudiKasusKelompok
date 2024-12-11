@@ -92,40 +92,40 @@ public class pro {
         boolean nemu = false;
         int totalSKS = 0;
 
-       
-
         for(int i = 0; i < idx; i++){
-
-            System.out.println("Daftar KRS");
-            System.out.println("NIM\tNAMA\tKode MK\tNama Mata Kuliah\tSKS");
-
             if (dataMhs[i][1].equals(nimLogin)) {
+                if (!nemu) {
+                    System.out.println("Daftar KRS");
+                    System.out.println("NIM\tNAMA\tKode MK\tNama Mata Kuliah\tSKS");
+                    nemu = true;
+                    }
                 System.out.println(dataMhs[i][1] + "\t" + dataMhs[i][0] + "\t" + dataMhs[i][2] + "\t" + dataMhs[i][3] + "\t\t" + nilaiSKS[i]);
                 totalSKS += nilaiSKS[i];
-                nemu = true;
             }
             
         }
+        
 
         if (nemu) {
             System.out.println("Total SKS: " + totalSKS);
-        }
-
-        if (!nemu) {
+        }else{
             System.out.println("Data Mahasiswa dengan NIM " + nimLogin + " tidak ditemukan!!!");
             return;
         }
+
+        
     }
+
 
     public static void analisKRS() {
         int mhsKurang = 0; 
     
         for (int i = 0; i < idx; i++) {
-            String currentNIM = dataMhs[i][1]; 
+            String nimsekarang = dataMhs[i][1]; 
             int totalSKS = 0; 
     
             for (int j = 0; j < idx; j++) {
-                if (dataMhs[j][1].equals(currentNIM)) {
+                if (dataMhs[j][1].equals(nimsekarang)) {
                     totalSKS += nilaiSKS[j]; 
                 }
             }
