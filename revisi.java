@@ -87,32 +87,39 @@ public class revisi {
         String nimLogin;
 
         System.out.println("==== Tampilkan Daftar KRS Mahasiswa ====");
-        System.out.print("Masukkan NIM Mahasiswa: ");
-        nimLogin = sc.nextLine();
+        // System.out.print("Masukkan NIM Mahasiswa: ");
+        // nimLogin = sc.nextLine();
 
         boolean nemu = false;
         int totalSKS = 0;
 
+        System.out.println("Daftar KRS");
+        System.out.println("NAMA\tNIM\tKode MK\tNama Mata Kuliah\tSKS");
+
         for(int i = 0; i < idx; i++){
-            if (dataMhs[i][1].equals(nimLogin)) {
-                if (!nemu) {
-                    System.out.println("Daftar KRS");
-                    System.out.println("NIM\tNAMA\tKode MK\tNama Mata Kuliah\tSKS");
-                    nemu = true;
-                    }
-                System.out.println(dataMhs[i][1] + "\t" + dataMhs[i][0] + "\t" + dataMhs[i][2] + "\t" + dataMhs[i][3] + "\t\t" + nilaiSKS[i]);
-                totalSKS += nilaiSKS[i];
+            for(int j = 0; j < dataMhs[i].length; j++){
+            // if (dataMhs[i][1].equalsIgnoreCase(nimLogin)) {
+                // if (!nemu) {
+                    
+                //     nemu = true;
+                //     }
+                System.out.print(dataMhs[i][j]+"\t");
+                
+            // }
             }
-            
+            System.out.print("\t"+nilaiSKS[i]);
+            totalSKS += nilaiSKS[i];
+            System.out.println();
         }
         
 
-        if (nemu) {
+        // if (nemu) {
             System.out.println("Total SKS: " + totalSKS);
-        }else{
-            System.out.println("Data Mahasiswa dengan NIM " + nimLogin + " tidak ditemukan!!!");
-            return;
-        }
+        // }
+        // else{
+        //     System.out.println("Data Mahasiswa dengan NIM " + nimLogin + " tidak ditemukan!!!");
+        //     return;
+        // }
 
         
     }
