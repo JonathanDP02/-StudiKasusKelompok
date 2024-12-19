@@ -78,6 +78,11 @@ public class UAS1F07 {
 
     public static void tampilan(){
 
+        if (idx07 == 0) {
+            System.out.println("Belum ada data skor yang diinput.");
+            return;
+        }
+
         System.out.println("========== TABEL SKOR TURNAMEN ==========");
         System.out.println("Nama tim\tLevel 1\tlevel 2\tTotal Skor");
         
@@ -92,18 +97,21 @@ public class UAS1F07 {
     }
 
     public static void tertinggi(){
-        int skor07 = 0;
-        int tertinggi07 = 0;
 
-        for(int i = 0; i < jmlSkor07.length; i++){
-            skor07 = jmlSkor07[idx07][2];
-            if (skor07 > skor07) {
-                tertinggi07 = skor07;
+        if (idx07 == 0) {
+            System.out.println("Belum ada data skor yang diinput.");
+            return;
+        }
+        int tertinggi07 = jmlSkor07[0][2];
+        int indexTertinggi = 0;
+
+        for (int i = 1; i < jml07; i++) {
+            if (jmlSkor07[i][2] > tertinggi07) {
+                tertinggi07 = jmlSkor07[i][2];
+                indexTertinggi = i;
             }
         }
 
-        System.out.println("Selamat kepada Tim " );
-
-        
+        System.out.println("Selamat kepada Tim " + namaTim07[indexTertinggi] + " dengan total skor " + tertinggi07);
     }
 }
